@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /tags/*
+Disallow: */page-data.json
+Sitemap: https://www.unix-lab.org/sitemap.xml
+Host: www.unix-lab.org
+
+User-agent: Twitterbot
+Disallow: *
+Allow: /static/*

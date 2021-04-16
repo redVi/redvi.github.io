@@ -1,0 +1,1 @@
+(self.webpackChunkblog=self.webpackChunkblog||[]).push([[159],{1973:function(e,t,n){"use strict";n.r(t),n.d(t,{default:function(){return u}});var r=n(7294),l=n(3352);function u(){return r.createElement(l.Ar,{title:"Метки",description:"Записи, сгруппированные по меткам"},r.createElement("h1",null,"Метки"),r.createElement(l.$G,{inPage:!0}))}}}]);
