@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="ru"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="yandex-verification" content="494a81ecb0e796d6"/><meta name="theme-color" content="#DFDBE5"/><meta name="description" content="Минималистичный оконный менеджер" data-gatsby-head="true"/><meta property="og:title" content="Поваренная книга openbox" data-gatsby-head="true"/><meta property="og:description" content="Минималистичный оконный менеджер" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:image" content="https://www.unix-lab.org/openbox.jpg" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:site" content="@octowed" data-gatsby-head="true"/><meta name="twitter:creator" content="@octowed" data-gatsby-head="true"/><meta name="twitter:title" content="Поваренная книга openbox" data-gatsby-head="true"/><meta name="twitter:description" content="Минималистичный оконный менеджер" data-gatsby-head="true"/><meta name="twitter:image" content="https://www.unix-lab.org/openbox.jpg" data-gatsby-head="true"/><style data-href="/styles.28a11c2c77d6ee440702.css" data-identity="gatsby-global-css">@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap);*,:after,:before{box-sizing:border-box}:root{-moz-tab-size:4;tab-size:4}html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}hr{height:0}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{padding:0}progress{vertical-align:baseline}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}:root{--hslPercent:0%;--textColor:#3f3f3f;--bgColor:#fff;--bgTags:#f7f7f7;--sidebarColor:#e8e8e8;--textSmoothColor:hsl(0,0%,calc(74.9% + var(var(--hslPercent))));--yellowColor:#ffd01b;--redColor:#c31;--linkColor:#70a0b0;--linkStyle:"none";--vikingColor:#34adc5;--iconColor:rgba(0,0,0,.8);--bodyBgColor:#dfdbe5;--borderColor:#dfdbe5;--shadow:0 0 1px rgba(0,0,180,.1),0 0 1px rgb(0 0 80/6%),0 2px 2px rgb(0 0 80/6%),0 2px 2px rgb(0 0 80/6%),0 1px 1px rgb(0 0 80/1%),0 8px 8px rgb(0 0 80/6%)}.inverted{--hslPercent:20%;--textColor:#a9a9b3;--bgColor:#1d2026;--bgTags:rgba(0,0,0,.5);--sidebarColor:#18171c;--iconColor:hsla(0,0%,100%,.8);--bodyBgColor:#1d2026;--borderColor:hsla(0,0%,100%,.2);--linkColor:#a9a9b3;--linkStyle:underline}@media (prefers-color-scheme:dark){:root{--hslPercent:20%;--textColor:#a9a9b3;--bgColor:#1d2026;--bgTags:rgba(0,0,0,.5);--sidebarColor:#18171c;--iconColor:hsla(0,0%,100%,.8);--bodyBgColor:#1d2026;--borderColor:hsla(0,0%,100%,.2);--linkColor:#a9a9b3;--linkStyle:underline}.inverted{--hslPercent:0%;--textColor:#3f3f3f;--bgColor:#fff;--bgTags:#f7f7f7;--sidebarColor:#e8e8e8;--iconColor:rgba(0,0,0,.8);--bodyBgColor:#dfdbe5;--borderColor:#dfdbe5;--linkColor:#70a0b0;--linkStyle:"none"}}@font-face{font-display:swap;font-family:Philosopher;font-style:normal;font-weight:700;src:url(/fonts/Philosopher_ru.woff2) format("woff2");unicode-range:u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116}@font-face{font-display:swap;font-family:Philosopher;font-style:normal;font-weight:700;src:url(/fonts/Philosopher_en.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}h1,h2,h3,h4,h5,h6{font-family:Philosopher,-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;font-weight:700}html{font-size:16px;line-height:21px}body{font-family:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;font-size:1rem;font-weight:400;line-height:1.5rem}h1,h2,h3,h4,h5,h6{margin-bottom:10px;margin-top:2rem}h1{font-size:2.8125rem;line-height:3.9375rem}h2{font-size:2rem}h2,h3{line-height:2.625rem}h3{font-size:1.4375rem}h4{line-height:1.3125rem}h4,h5{font-size:1rem}h5{font-size:.8rem;line-height:1.3125rem}blockquote,ol,p,table,ul{margin-bottom:1.3125rem;margin-top:0}ol ol,ol ul,ul ol,ul ul{margin-bottom:0;margin-top:0}.hr,hr{border:1px solid;margin:-1px 0}a,b,code,em,i,small,strong{line-height:1.3}sub,sup{line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}#___gatsby{overflow:hidden}.layout{background-color:var(--bgColor);display:flex;flex-direction:column;justify-content:space-between;max-width:1200px;min-height:100vh;padding:1rem 0 0}.page{margin:60px auto 0;width:90%}.articles{list-style:none;margin:0;padding:0}.gatsby-highlight{margin-bottom:2.5rem}@media (min-width:640px){.articles{align-items:flex-end;display:flex;flex-flow:row wrap;justify-content:space-between}.articles li{width:25%}}@media (min-width:960px){.layout{box-shadow:1px 0 3px var(--textSmoothColor);margin:2rem;min-height:auto}.gatsby-highlight{max-width:860px}}@media (min-width:1300px){.layout{margin:2rem auto}}.footer-module--footer--03d8a{display:flex;flex-flow:row wrap;justify-content:center;margin-top:5rem;min-height:50px;padding:1rem 0}.footer-module--footer__link--22faa{display:block}.footer-module--footer--03d8a a[target=_blank]:after{content:""}.footer-module--footer__link--22faa svg{height:15px;width:86px}.footer-module--footer__link--22faa:nth-child(2) svg{height:20px}@media (min-width:640px){.footer-module--footer__link--22faa svg{width:125px}}.gatsby-code-button-buffer{background-color:#f5f5f5;height:18px;position:absolute;right:2px;top:0;width:18px}.gatsby-code-button-buffer svg{height:16px;width:16px}body{-webkit-font-smoothing:antialiased;background-color:var(--bgColor);color:var(--textColor);text-rendering:optimizelegibility}.hidden{display:none}a{color:var(--linkColor);text-decoration:none}a:hover{text-decoration:underline}a[target=_blank]{margin-right:3px}a[target=_blank]:after{content:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJwcmVmaXhfX2ljb24gcHJlZml4X19pY29uX2V4dGVybmFsIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0iI2FhYSIgZD0iTTE4LjggODUuMWg1NmMyLjIgMCA0LTEuOCA0LTR2LTMyaC04djI4aC00OHYtNDhoMjh2LThoLTMyYy0yLjIgMC00IDEuOC00IDR2NTZjMCAyLjIgMS44IDQgNCA0eiIvPjxwb2x5Z29uIGZpbGw9IiNhYWEiIHBvaW50cz0iNDUuNyA0OC43IDUxLjMgNTQuMyA3Ny4yIDI4LjUgNzcuMiAzNy4yIDg1LjIgMzcuMiA4NS4yIDE0LjkgNjIuOCAxNC45IDYyLjggMjIuOSA3MS41IDIyLjkiLz48L3N2Zz4=);margin-left:3px}table,td,th{border:1px solid var(--textSmoothColor);padding:10px}table{border-collapse:collapse;border-color:transparent;display:block;margin:0 auto;overflow-x:auto;width:100%}@media screen and (min-width:640px){table{border-color:var(--textSmoothColor);border-radius:5px;display:table;margin:40px 0}}blockquote{background-color:var(--bgTags);border-left:2px solid var(--redColor);margin:0 0 1rem;padding:1em 1em 1em 2em;position:relative}blockquote p{margin-bottom:1em;margin-top:0}blockquote:before{content:'"';font-size:2em;left:.3em;line-height:2em;position:absolute;top:0}@media screen and (min-width:768px){blockquote{font-size:1.5rem;line-height:1.3;margin-right:auto;max-width:860px}}button{background:none;border:none;line-height:0;padding:0}.button{align-items:center;background-color:transparent;border:1px solid var(--borderColor);color:var(--textColor);display:inline-flex;font-size:11px;height:100%;letter-spacing:.5px;line-height:1;outline:none;padding:20px 3rem;position:relative;text-decoration:none;text-transform:uppercase}.button_link{border:0;padding:1rem}.button_small{padding:10px 3rem}.button__icon{display:inline-flex;height:15px;margin-left:10px;position:relative;width:15px}.button__icon:after,.button__icon:before{background:var(--textColor);content:"";height:1px;position:absolute;top:50%;width:6px}.button__icon:before{left:2.5px;transform:rotate(45deg)}.button__icon:after{right:2.5px;transform:rotate(-45deg)}iframe,video{height:auto;margin-bottom:1rem;max-width:800px;min-height:300px;width:100%}body{background-color:var(--bodyBgColor)}.header{align-items:center;display:grid;grid-template-columns:3fr 48px 40px 40px;justify-content:flex-end;margin:0 auto;padding:1rem 0;position:relative;width:90%}.header__logo{margin-right:auto}.header__tags{display:none!important}.header__tagsSwitcher{outline:none}.header__tagsSwitcher svg{height:22px;width:30px}@media (min-width:640px){.header{grid-template-columns:60px 2fr 30px 30px;margin:0 auto}.header__tags{display:flex!important}.header__tagsSwitcher{display:none}}.logo{display:flex;height:40px;width:40px}.logo:hover{transform:scale(1.1)}a.next-prev-module--link--3ae6f{border-color:var(--textColor);border-style:dotted;border-width:1px 0;color:var(--textColor);padding:5px 15px;text-decoration:none!important}a.next-prev-module--link--3ae6f:hover{border-style:dashed}.next-prev-module--link__separator--e12da{background-color:var(--textColor);border-radius:50%;display:inline-block;height:6px;margin-left:10px;margin-right:10px;width:6px}.next-prev-module--link__title--a796e{color:var(--textColor);display:block;font-size:1em;font-weight:700;margin-top:10px}.next-prev-module--links--d62c5{align-items:center;display:flex;flex-wrap:row wrap;margin:2rem 0}.searchBlock{display:flex}.searchBlock_active{position:absolute;right:0;top:1rem;width:calc(100% - 1rem);z-index:10}.searchForm{opacity:1;pointer-events:all;position:relative;width:100%}.searchForm_hidden{opacity:0;pointer-events:none;width:0}.searchForm__input{appearance:none;background:var(--bgColor);border:1px solid var(--textColor);border-radius:20px;color:var(--textColor);font-size:16px;line-height:1.2;outline:none;padding:.5rem 40px .5rem 1rem;position:relative;width:100%;z-index:10}.searchForm_hidden input{opacity:0;width:0}.searchForm__button{cursor:pointer;margin:auto;outline:none;width:30px}.searchForm__button_close{background-color:var(--textColor);border-radius:50%;height:28px;padding:4px;position:absolute;right:4px;top:4px;width:28px;z-index:11}.searchForm__button_close svg{fill:var(--bgColor)}.searchForm__list{background-color:var(--bgColor);list-style:none;padding:5px 0 5px 10px;position:absolute;right:-5px;top:45px;width:100%;z-index:11}.searchForm__list a{color:var(--textColor);display:inline-block;font-size:14px;padding:.5rem 0}.searchForm__list a:hover{text-decoration:underline}@media (min-width:460px){.searchBlock_active,.searchForm{width:300px}.searchForm_hidden{width:0}.searchForm__button_close{right:4px}.searchForm__list{width:300px}}@media (min-width:640px){.searchBlock{top:inherit}}.tags-module--tags--512d6{align-items:center;display:flex;flex-flow:row wrap;list-style:none;margin:0;padding:0}.tags-module--tags--512d6 a{background-color:#333;border-radius:3px;color:#fff;font-size:10px;letter-spacing:.5px;margin:1px 1px 3px;padding:8px 10px;text-decoration:none;text-transform:uppercase;transition:all .3s cubic-bezier(.4,.01,.165,.99)}.tags-module--tags--512d6 li{margin:7px 0}.tags-module--tags--512d6 li:not(:last-child){margin-right:5px}.tags-module--tags--512d6 a:hover{background-color:#bfbfbf;text-decoration:none}.tags-module--tags_page--6ce9e li{margin:0 0 35px}.tags-module--tags_page--6ce9e a{font-size:1.2rem;padding:.8rem 1.5rem}.tags-module--tags_header--f87a8{grid-row:2;margin:10px auto}@media (min-width:640px){.tags-module--tags_header--f87a8{grid-column:2;grid-row:1;margin:10px}}summary::-webkit-details-marker{display:none}.toc-module--details--fda91{margin:1rem auto 2rem}.toc-module--list--5acce{list-style:none;margin-top:1rem;padding-left:0}.toc-module--list__item--75273{margin-bottom:.5rem}.page__content a{text-decoration:var(--linkStyle)}.page__content a:hover{text-decoration:underline}.article__header{border-bottom:1px solid var(--borderColor);border-top:1px solid var(--borderColor);display:flex;margin-bottom:1rem;max-width:960px}.article__header_inList{display:block}.article__box{align-items:center;display:flex;flex-flow:row wrap;padding-bottom:1rem}.article__image{background-color:#708090;background-position:50%;background-repeat:no-repeat;background-size:cover;clip-path:polygon(25% 0,100% 0,100% 100%,0 100%);display:flex;min-height:200px;width:100%}.article__image_inList{clip-path:polygon(0 0,90% 0,100% 100%,10% 100%);filter:none}.article__image_inList:hover{filter:saturate(60%)}.article__title{font-size:26px;line-height:1.2;margin:1rem 0;width:100%}.article_inList .article__title{font-family:Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;font-size:.9rem;margin-bottom:0}.article_inList .article__date{font-size:.8rem;margin-left:0}.articles li:first-child .article__image{height:340px}.articles li:nth-child(2) .article__image{height:280px}.article__tag{color:var(--textColor);font-size:.9rem;letter-spacing:-.00879776em;margin-right:10px}.article__tag,.article__tag:hover{text-decoration:none}.article__tag:hover span{background-color:var(--bgTags)}.article__tag span{border:1px solid var(--borderColor);padding:5px 15px}.article__date{font-size:.9rem}.comments{margin-bottom:2rem}.article .gatsby-resp-image-wrapper{box-shadow:var(--shadow);margin:1.5rem 0}@media (min-width:620px){.article{margin-left:60px}.article_inList{margin-left:0}.article__title{font-size:32px}}@media (min-width:960px){.article__title{font-size:42px}.article h2,.article h3,.article h4,.article h5,.article h6,.article ol,.article p,.article ul,.comments{max-width:620px}.article .gatsby-resp-image-wrapper{margin-left:0!important;width:760px}.article table{width:860px}}@media (min-width:1200px){.article .gatsby-resp-image-wrapper{width:860px}}.tip-module--tip--f7b96{border:1px solid #42b983;border-left-width:.5rem;margin:1rem 0;padding:1rem 1.5rem}.tip-module--heading--d9f2b{font-weight:700;margin-bottom:.5rem}.tip-module--warning--6d7c1{border-color:coral}.tip-module--danger--0857a{border-color:crimson}@media (min-width:960px){.tip-module--tip--f7b96{max-width:620px}}.tabs-module--tabs--0e384{perspective:300px}.tabs-module--tab__buttons--cdbc9{border-bottom:1px solid var(--vikingColor);display:inline-flex;overflow-x:auto;width:100%}.tabs-module--tab__button--5cfcd{background-color:transparent;border:none;border:1px solid var(--vikingColor);border-bottom:none;color:var(--textColor);cursor:pointer;display:block;outline:none;padding:1rem;transition:background-color .3s;white-space:nowrap}.tabs-module--tab__button--5cfcd:not(:last-child){margin-right:5px}.tabs-module--tab__button_active--9de04{background-color:var(--vikingColor);color:#fff}.tabs-module--tab_single--ccb24{line-height:1.4em;opacity:0;padding:1.5rem 0 1rem;pointer-events:none;position:absolute;transform:rotateX(-20deg);transform-origin:top center;z-index:0}.tabs-module--tab_single_active--3ae69{pointer-events:inherit}@media (min-width:960px){.tabs-module--tab__buttons--cdbc9{width:auto}}.icon{fill:var(--iconColor);cursor:pointer}.icon_mail,.icon_telegram,.icon_twitter{fill:var(--textColor);margin:0 10px}.icon_search,.icon_theme{height:22px;width:22px}.theme-switcher-module--themeSwitcher--032b9{cursor:pointer;margin:auto;outline:none;width:30px}._404-module--not_found--8156c{align-items:center;display:flex;flex-direction:column}._404-module--title--80dc8{font-size:5rem;margin-bottom:1rem}.taglist-module--page--417be{margin:0 auto;max-width:960px}.taglist-module--title--674b9{margin:0}.taglist-module--wrapper--0a364{align-items:center;display:flex;flex-flow:row wrap;margin-bottom:2rem}.taglist-module--tags--29a31{margin:0;padding:0}.taglist-module--tag--faafd{list-style-type:none;padding:.5rem;position:relative}.taglist-module--tag--faafd a{color:var(--textColor);text-decoration:none}.taglist-module--tag--faafd a:hover{text-decoration:underline}@media screen and (min-width:640px){.taglist-module--tags--29a31{display:grid;grid-template-columns:repeat(auto-fit,minmax(50%,1fr))}.taglist-module--tag--faafd{border-bottom:1px solid rgba(0,96,160,.15)}}:root{--codeBgColor:#fbfdff;--codeSaturation:0%;--codeColor:#505362}.inverted{--codeBgColor:#282c34;--codeColor:#bfbfbf;--codeSaturation:30%;--aga:hsl(255,255,50%)}@media (prefers-color-scheme:dark){:root{--codeBgColor:#282c34;--codeColor:#bfbfbf;--codeSaturation:30%}.inverted{--codeBgColor:#fbfdff;--codeColor:#505362;--codeSaturation:0%}}.gatsby-highlight{border-radius:4px;box-shadow:var(--shadow);overflow:auto;position:relative}@media (min-width:960px){.gatsby-highlight{max-width:860px}}.gatsby-highlight pre{margin-bottom:0;margin-top:0}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:var(--codeColor);font-family:Consolas,Liberation Mono,Menlo,Courier,monospace;font-size:.85rem;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{overflow:auto;padding:1em}pre>code[class*=language-]{font-size:.8rem}:not(pre)>code[class*=language-],pre[class*=language-]{background:#fff;background:var(--codeBgColor)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#a0a1a7}.token.operator,.token.punctuation{color:var(--codeColor)}.token.selector,.token.tag{color:hsl(209,30%,calc(45% + var(--codeSaturation)))}.token.attr-name,.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol{color:hsl(19,64%,calc(45% + var(--codeSaturation)))}.token.attr-value,.token.builtin,.token.char,.token.inserted,.token.string{color:hsl(79,38%,calc(37% + var(--codeSaturation)))}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:hsl(187,44%,calc(49% + var(--codeSaturation)))}.token.function{color:hsl(207,70%,calc(45% + var(--codeSaturation)))}.token.atrule,.token.important,.token.keyword,.token.regex,.token.variable{color:hsl(286,45%,calc(50% + var(--codeSaturation)))}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}pre.line-numbers{counter-reset:linenumber;padding-left:3.8em}pre.line-numbers,pre.line-numbers>code{position:relative}.line-numbers .line-numbers-rows{border-right:0;font-size:100%;left:-3.8em;letter-spacing:-1px;pointer-events:none;position:absolute;top:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:3em}.line-numbers-rows>span{counter-increment:linenumber;display:block;pointer-events:none}.line-numbers-rows>span:before{color:#b5b9c2;content:counter(linenumber);display:block;padding-right:.8em;text-align:right}.gatsby-highlight[data-language]:before{border-radius:0 0 4px 4px;color:#36313d;display:none;font-size:.75rem;letter-spacing:.075em;line-height:1;padding:.25rem .5rem;position:absolute;right:1.5rem;text-align:right;text-transform:uppercase;top:0}@media screen and (min-width:640px){.gatsby-highlight[data-language]:before{display:block}}.gatsby-highlight[data-language=javascript]:before,.gatsby-highlight[data-language=js]:before,.gatsby-highlight[data-language=jsx]:before{background:#ffd01b;color:#36313d}.gatsby-highlight[data-language=javascript]:before,.gatsby-highlight[data-language=js]:before,.gatsby-highlight[data-language=jsx]:before{content:"js"}.gatsby-highlight[data-language=jsx]:before{background:#61dafb;content:"jsx"}.gatsby-highlight[data-language=ts]:before,.gatsby-highlight[data-language=tsx]:before,.gatsby-highlight[data-language=typescript]:before{background:#294e80;color:#fff}.gatsby-highlight[data-language=ts]:before,.gatsby-highlight[data-language=typescript]:before{content:"ts"}.gatsby-highlight[data-language=tsx]:before{content:"tsx"}.gatsby-highlight[data-language=html]:before{background:#005a9c;color:#fff;content:"html"}.gatsby-highlight[data-language=xml]:before{background:#00749c;color:#fff;content:"xml"}.gatsby-highlight[data-language=php]:before{background:#69c;color:#fff;content:"php"}.gatsby-highlight[data-language=css]:before{background:#ff9800;content:"css"}.gatsby-highlight[data-language=c]:before,.gatsby-highlight[data-language=mdx]:before{background:#f9ac00;font-weight:400}.gatsby-highlight[data-language=c]:before{content:"c"}.gatsby-highlight[data-language=mdx]:before{content:"mdx"}.gatsby-highlight[data-language=bash]:before,.gatsby-highlight[data-language=conf]:before,.gatsby-highlight[data-language=markdown]:before,.gatsby-highlight[data-language=sh]:before,.gatsby-highlight[data-language=shell]:before{background:silver}.gatsby-highlight[data-language=bash]:before,.gatsby-highlight[data-language=sh]:before{content:"bash"}.gatsby-highlight[data-language=shell]:before{content:"shell"}.gatsby-highlight[data-language=sh]:before{content:"conf"}.gatsby-highlight[data-language=markdown]:before{content:"md"}.gatsby-highlight[data-language=json5]:before,.gatsby-highlight[data-language=json]:before{background:linen;color:#36313d;content:"json"}.gatsby-highlight[data-language=diff]:before{background:#e6ffed;content:"diff"}.gatsby-highlight[data-language=text]:before{background:transparent;content:""}.gatsby-highlight[data-language=sass]:before,.gatsby-highlight[data-language=yaml]:before{background:#ffa8df}.gatsby-highlight[data-language=yaml]:before{content:"yaml"}.gatsby-highlight[data-language=sass]:before{content:"sass"}.gatsby-highlight[data-language=rb]:before,.gatsby-highlight[data-language=ruby]:before{background:#cc342d;color:#fff;content:"rb"}.gatsby-highlight[data-language=erb]:before{background:#de7768;color:#fff;content:"erb"}.gatsby-highlight[data-language=tex]:before{background:#de6894;color:#fff;content:"tex"}.gatsby-highlight[data-language=graphql]:before{background:#e10098;color:#fff;content:"GraphQL"}.gatsby-highlight[data-language=lisp]:before{background:#7f5ab6;color:#fff;content:"lisp"}.gatsby-highlight[data-language=vue]:before{background:#4fc08d;color:#fff;content:"vue"}.gatsby-highlight[data-language=py]:before,.gatsby-highlight[data-language=python]:before{background:#093;color:#fff;content:"py"}.gatsby-highlight[data-language=django]:before{background:#44b78b;color:#fff;content:"html"}</style><link rel="icon" href="/favicon-32x32.png?v=811a7931fba03b4e9798857dcaf98dd9" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=811a7931fba03b4e9798857dcaf98dd9"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=811a7931fba03b4e9798857dcaf98dd9"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><title data-gatsby-head="true">Поваренная книга openbox</title><link rel="preload" as="font" type="font/woff2" href="/fonts/Philosopher_ru.woff2" crossorigin="anonymous" data-gatsby-head="true"/><link rel="preload" as="font" type="font/woff2" href="/fonts/Philosopher_en.woff2" crossorigin="anonymous" data-gatsby-head="true"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><svg width="0" height="0" class="hidden" preserveAspectRatio="xMidYMid meet"><symbol viewBox="0 0 470 146" xmlns="http://www.w3.org/2000/svg" id="email"><path d="M50.98 145.758c11.915 0 22.56-3.353 31.934-10.059 9.375-6.706 16.667-16.21 21.875-28.515L81.156 95.758c-3.45 6.575-7.633 11.588-12.549 15.039-4.915 3.45-10.237 5.176-15.966 5.176-6.12 0-11.296-2.344-15.528-7.032-4.231-4.687-6.347-10.481-6.347-17.382 0-6.771 2.148-12.484 6.445-17.14 4.297-4.654 9.505-6.981 15.625-6.981 1.953 0 3.841.276 5.664.83 1.823.553 3.58 1.383 5.273 2.49L37.797 88.824l12.012 18.164 47.949-32.617C92.615 64.215 86.039 56.484 78.03 51.178c-8.008-5.306-17.024-7.96-27.05-7.96-6.706 0-13.07 1.27-19.092 3.81-6.022 2.538-11.377 6.184-16.065 10.937-4.883 4.948-8.577 10.514-11.084 16.7C2.234 80.848.98 87.424.98 94.39c0 6.966 1.254 13.541 3.76 19.726 2.507 6.185 6.201 11.751 11.084 16.7 4.688 4.817 10.075 8.512 16.162 11.083 6.088 2.572 12.419 3.858 18.994 3.858zM145.414 144V86.969c0-4.037 1.204-7.373 3.613-10.01 2.41-2.637 5.47-3.955 9.18-3.955 3.776 0 6.901 1.318 9.375 3.955s3.711 5.973 3.711 10.01V144h30.566V86.969c0-4.037 1.237-7.373 3.711-10.01 2.474-2.637 5.567-3.955 9.278-3.955 3.71 0 6.77 1.318 9.18 3.955 2.408 2.637 3.613 5.973 3.613 10.01V144h30.761V91.754c0-14.844-3.971-26.677-11.914-35.498-7.942-8.822-18.49-13.233-31.64-13.233-5.078 0-10.091 1.123-15.04 3.37-4.947 2.246-9.407 5.452-13.378 9.619-3.841-4.232-8.252-7.455-13.233-9.668-4.98-2.214-10.302-3.32-15.967-3.32-12.565 0-22.77 4.46-30.615 13.378-7.845 8.92-11.767 20.703-11.767 35.352V144h30.566zm175.781 1.367c1.953 0 4.07-.13 6.348-.39a82.914 82.914 0 0 0 7.227-1.172v-32.422c-3.06.976-5.534 1.66-7.422 2.05-1.888.391-3.549.587-4.98.587-5.925 0-10.597-1.79-14.014-5.372-3.418-3.58-5.127-8.398-5.127-14.453 0-5.86 1.627-10.595 4.882-14.209 3.256-3.613 7.487-5.42 12.696-5.42 6.315 0 11.067 1.856 14.257 5.567 3.19 3.71 4.786 9.212 4.786 16.504V144h30.957v-42.093c-.018-8.632-.36-14.963-1.026-18.991-.683-4.134-1.806-7.894-3.369-11.28-4.036-8.853-10.091-15.836-18.164-20.947-8.073-5.11-17.09-7.666-27.05-7.666-14.454 0-26.368 4.818-35.743 14.454-9.375 9.635-14.062 21.875-14.062 36.718 0 14.844 4.687 27.084 14.062 36.72 9.375 9.634 21.29 14.452 35.742 14.452zm82.618-108.984c5.013 0 9.293-1.774 12.841-5.322 3.548-3.549 5.323-7.83 5.323-12.842 0-5.013-1.775-9.278-5.323-12.793-3.548-3.516-7.828-5.274-12.841-5.274-5.014 0-9.294 1.758-12.842 5.274-3.548 3.515-5.323 7.78-5.323 12.793 0 5.013 1.775 9.293 5.323 12.842 3.548 3.548 7.828 5.322 12.841 5.322zM419.632 144V44.977h-31.64V144h31.64zm50 0V4.156h-31.64V144h31.64z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 169" id="site-logo"><path d="M76.193 52.127V0h-47.86c-7.38.722-12.673 2.264-15.879 4.626C6.572 8.96 5.91 9.49 2.738 15.754.514 20.145-.355 25.21.13 30.949v137.56h144.352c4.745-.263 8.35-.862 10.816-1.795 3.7-1.399 3.834-2.369 6.541-4.769 1.806-1.6 3.23-3.58 4.274-5.94l2.642-5.698a28.541 28.541 0 0 0 3.043-12.824V0h-75.5v52.127h20.748v64.805h-61.89V52.127h21.037z" fill-rule="evenodd"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.97 384.97" id="menu"><path d="M12.03 120.303h360.909c6.641 0 12.03-5.39 12.03-12.03 0-6.641-5.39-12.03-12.03-12.03H12.03c-6.641 0-12.03 5.39-12.03 12.03s5.39 12.03 12.03 12.03zm360.909 60.152H12.03c-6.641 0-12.03 5.39-12.03 12.03s5.39 12.03 12.03 12.03h360.909c6.641 0 12.03-5.39 12.03-12.03s-5.389-12.03-12.03-12.03zm0 84.212H132.333c-6.641 0-12.03 5.39-12.03 12.03 0 6.641 5.39 12.03 12.03 12.03h240.606c6.641 0 12.03-5.39 12.03-12.03.001-6.641-5.389-12.03-12.03-12.03z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" id="search"><path d="M14.906 16.32a8 8 0 1 1 1.414-1.414l3.751 3.751-1.414 1.414-3.751-3.751zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path></symbol><symbol viewBox="0 0 784 185" xmlns="http://www.w3.org/2000/svg" id="telegram" preserveAspectRatio="xMidYMid meet"><path d="M56.16 140v-29.2H42c-3.841 0-6.527-.715-8.057-2.148-1.53-1.432-2.295-3.906-2.295-7.422V69.98H56.16V40.977H31.648v-24.22H.594v82.227c0 14.128 3.564 24.496 10.693 31.104 7.129 6.608 18.246 9.912 33.35 9.912H56.16zm61.23 1.758c11.915 0 22.56-3.353 31.934-10.059 9.375-6.706 16.667-16.21 21.875-28.515l-23.633-11.426c-3.45 6.575-7.633 11.588-12.548 15.039-4.916 3.45-10.238 5.176-15.967 5.176-6.12 0-11.296-2.344-15.528-7.032-4.231-4.687-6.347-10.481-6.347-17.382 0-6.771 2.148-12.484 6.445-17.14 4.297-4.654 9.505-6.981 15.625-6.981 1.953 0 3.841.276 5.664.83 1.823.553 3.58 1.383 5.274 2.49l-25.977 18.066 12.012 18.164 47.949-32.617c-5.143-10.156-11.719-17.887-19.727-23.193-8.007-5.306-17.024-7.96-27.05-7.96-6.706 0-13.07 1.27-19.092 3.81-6.022 2.538-11.377 6.184-16.065 10.937-4.882 4.948-8.577 10.514-11.084 16.7-2.506 6.184-3.76 12.76-3.76 19.726 0 6.966 1.254 13.541 3.76 19.726 2.507 6.185 6.202 11.751 11.084 16.7 4.688 4.817 10.075 8.512 16.162 11.083 6.088 2.572 12.42 3.858 18.995 3.858zM213.876 140V.156h-31.64V140h31.64zm64.16 1.758c11.914 0 22.559-3.353 31.934-10.059 9.375-6.706 16.666-16.21 21.875-28.515L308.21 91.758c-3.45 6.575-7.634 11.588-12.549 15.039-4.915 3.45-10.238 5.176-15.967 5.176-6.12 0-11.295-2.344-15.527-7.032-4.232-4.687-6.348-10.481-6.348-17.382 0-6.771 2.149-12.484 6.446-17.14 4.296-4.654 9.505-6.981 15.625-6.981 1.953 0 3.84.276 5.664.83 1.823.553 3.58 1.383 5.273 2.49l-25.976 18.066 12.011 18.164 47.95-32.617c-5.144-10.156-11.72-17.887-19.727-23.193-8.008-5.306-17.025-7.96-27.05-7.96-6.707 0-13.07 1.27-19.093 3.81-6.022 2.538-11.377 6.184-16.064 10.937-4.883 4.948-8.578 10.514-11.084 16.7-2.507 6.184-3.76 12.76-3.76 19.726 0 6.966 1.253 13.541 3.76 19.726 2.506 6.185 6.201 11.751 11.084 16.7 4.687 4.817 10.075 8.512 16.162 11.083 6.087 2.572 12.419 3.858 18.994 3.858zm108.692 42.676c16.406 0 29.036-4.346 37.89-13.038 8.854-8.69 13.281-21.012 13.281-36.962v-35.84c0-8.985-.341-15.544-1.025-19.678-.684-4.134-1.807-7.894-3.37-11.28-4.036-8.919-10.058-15.917-18.065-20.995-8.008-5.078-16.993-7.618-26.954-7.618-14.323 0-26.204 4.802-35.644 14.405-9.44 9.603-14.16 21.728-14.16 36.377 0 14.648 4.67 26.741 14.013 36.279 9.343 9.538 21.208 14.307 35.596 14.307 1.888 0 3.955-.13 6.201-.391 2.246-.26 4.77-.651 7.569-1.172v-31.445c-3.06.976-5.534 1.66-7.422 2.05-1.888.391-3.548.587-4.98.587-5.925 0-10.596-1.79-14.014-5.372-3.418-3.58-5.127-8.398-5.127-14.453 0-5.86 1.627-10.595 4.882-14.209 3.256-3.613 7.487-5.42 12.696-5.42 6.25 0 10.954 1.84 14.111 5.518 3.158 3.678 4.736 9.196 4.736 16.553v36.523c0 10.352-1.757 17.318-5.273 20.899-3.516 3.58-9.896 5.37-19.14 5.37-4.623 0-9.473-.455-14.551-1.367-5.079-.911-10.45-2.278-16.114-4.101v30.078a149.995 149.995 0 0 0 17.383 3.272c5.86.748 11.686 1.123 17.48 1.123zM485.262 140v-37.207c0-11.263 2.49-19.385 7.47-24.365 4.98-4.98 13.103-7.471 24.366-7.471h1.367v-29.98h-3.711c-7.682 0-13.997 1.188-18.945 3.564-4.948 2.376-8.985 6.136-12.11 11.28V40.976h-28.613V140h30.176zm88.476 1.367c1.953 0 4.07-.13 6.348-.39a82.914 82.914 0 0 0 7.226-1.172v-32.422c-3.06.976-5.533 1.66-7.421 2.05-1.888.391-3.549.587-4.98.587-5.925 0-10.597-1.79-14.015-5.372-3.417-3.58-5.126-8.398-5.126-14.453 0-5.86 1.627-10.595 4.882-14.209 3.256-3.613 7.487-5.42 12.696-5.42 6.315 0 11.067 1.856 14.257 5.567 3.19 3.71 4.786 9.212 4.786 16.504V140h30.957V98.594c0-8.985-.342-15.544-1.026-19.678-.683-4.134-1.806-7.894-3.369-11.28-4.036-8.853-10.091-15.836-18.164-20.947-8.073-5.11-17.09-7.666-27.05-7.666-14.454 0-26.368 4.818-35.743 14.454-9.375 9.635-14.062 21.875-14.062 36.718 0 14.844 4.687 27.084 14.062 36.72 9.375 9.634 21.29 14.452 35.742 14.452zM670.125 140V82.969c0-4.037 1.204-7.373 3.613-10.01 2.41-2.637 5.469-3.955 9.18-3.955 3.776 0 6.901 1.318 9.375 3.955s3.71 5.973 3.71 10.01V140h30.567V82.969c0-4.037 1.237-7.373 3.711-10.01 2.474-2.637 5.567-3.955 9.278-3.955 3.71 0 6.77 1.318 9.18 3.955 2.408 2.637 3.613 5.973 3.613 10.01V140h30.761V87.754c0-14.844-3.971-26.677-11.914-35.498-7.942-8.822-18.49-13.233-31.64-13.233-5.079 0-10.092 1.123-15.04 3.37-4.947 2.246-9.407 5.452-13.378 9.619-3.842-4.232-8.252-7.455-13.233-9.668-4.98-2.214-10.303-3.32-15.967-3.32-12.565 0-22.77 4.46-30.615 13.378-7.845 8.92-11.767 20.703-11.767 35.352V140h30.566z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" id="theme"><circle cx="10" cy="10" r="8"></circle><circle cx="10" cy="10" r="6"></circle></symbol><symbol viewBox="0 0 597 146" xmlns="http://www.w3.org/2000/svg" id="twitter" preserveAspectRatio="xMidYMid meet"><path d="M56.16 144v-29.2H42c-3.841 0-6.527-.715-8.057-2.148-1.53-1.432-2.295-3.906-2.295-7.422V73.98H56.16V44.977H31.648v-24.22H.594v82.227c0 14.128 3.564 24.496 10.693 31.104 7.129 6.608 18.246 9.912 33.35 9.912H56.16zm115.625 1.758c12.63 0 22.852-4.427 30.664-13.281 7.813-8.855 11.719-20.606 11.719-35.254V44.977h-30.566v57.03c0 4.037-1.221 7.341-3.663 9.913-2.441 2.572-5.55 3.857-9.326 3.857-3.71 0-6.77-1.285-9.18-3.857-2.408-2.572-3.613-5.876-3.613-9.912V44.977h-30.76v57.03c0 4.037-1.205 7.341-3.614 9.913s-5.501 3.857-9.277 3.857c-3.711 0-6.803-1.285-9.277-3.857-2.474-2.572-3.711-5.876-3.711-9.912V44.977H70.613v52.246c0 14.843 3.972 26.644 11.914 35.4 7.943 8.757 18.49 13.135 31.641 13.135 5.143 0 10.156-1.107 15.039-3.32 4.883-2.214 9.277-5.372 13.184-9.473 3.776 4.167 8.186 7.34 13.232 9.521 5.046 2.181 10.433 3.272 16.162 3.272zm75.586-109.375c5.013 0 9.294-1.774 12.842-5.322 3.548-3.549 5.322-7.83 5.322-12.842 0-5.013-1.774-9.278-5.322-12.793C256.665 1.91 252.384.152 247.37.152c-5.013 0-9.294 1.758-12.842 5.274-3.548 3.515-5.322 7.78-5.322 12.793 0 5.013 1.774 9.293 5.322 12.842 3.548 3.548 7.83 5.322 12.842 5.322zM263.191 144V44.977h-31.64V144h31.64zm73.34 0v-29.2h-14.16c-3.841 0-6.527-.715-8.057-2.148-1.53-1.432-2.294-3.906-2.294-7.422V73.98h24.511V44.977H312.02v-24.22h-31.055v82.227c0 14.128 3.564 24.496 10.693 31.104 7.13 6.608 18.246 9.912 33.35 9.912h11.523zm70.41 0v-29.2h-14.16c-3.84 0-6.526-.715-8.056-2.148-1.53-1.432-2.295-3.906-2.295-7.422V73.98h24.511V44.977H382.43v-24.22h-31.055v82.227c0 14.128 3.564 24.496 10.693 31.104 7.13 6.608 18.246 9.912 33.35 9.912h11.523zm61.23 1.758c11.915 0 22.56-3.353 31.934-10.059 9.375-6.706 16.667-16.21 21.875-28.515l-23.632-11.426c-3.45 6.575-7.634 11.588-12.55 15.039-4.915 3.45-10.237 5.176-15.966 5.176-6.12 0-11.296-2.344-15.527-7.032-4.232-4.687-6.348-10.481-6.348-17.382 0-6.771 2.148-12.484 6.445-17.14 4.297-4.654 9.506-6.981 15.625-6.981 1.953 0 3.841.276 5.664.83 1.823.553 3.581 1.383 5.274 2.49l-25.977 18.066L467 106.988l47.95-32.617c-5.144-10.156-11.72-17.887-19.727-23.193-8.008-5.306-17.025-7.96-27.051-7.96-6.706 0-13.07 1.27-19.092 3.81-6.022 2.538-11.377 6.184-16.064 10.937-4.883 4.948-8.578 10.514-11.084 16.7-2.507 6.184-3.76 12.76-3.76 19.726 0 6.966 1.253 13.541 3.76 19.726 2.506 6.185 6.2 11.751 11.084 16.7 4.687 4.817 10.074 8.512 16.162 11.083 6.087 2.572 12.418 3.858 18.994 3.858zm95.02-1.758v-37.207c0-11.263 2.49-19.385 7.471-24.365 4.98-4.98 13.102-7.471 24.365-7.471h1.368v-29.98h-3.711c-7.683 0-13.998 1.188-18.946 3.564-4.948 2.376-8.984 6.136-12.11 11.28V44.976h-28.612V144h30.175z"></path></symbol></svg><div class="layout"><header class="header"><a class="logo header__logo" aria-label="Домой" href="/"><svg class="icon icon_logo" width="40" height="40" preserveAspectRatio="xMinYMax meet"><use xlink:href="#site-logo"></use></svg></a><ul class="tags-module--tags--512d6 tags-module--tags_header--f87a8 header__tags"><li><a href="/tags/tex/">TeX</a></li><li><a href="/tags/backend/">backend</a></li><li><a href="/tags/editors/">editors</a></li><li><a href="/tags/frontend/">frontend</a></li><li><a href="/tags/linux/">linux</a></li><li><a href="/tags/mobile/">mobile</a></li><li><a href="/tags/random/">random</a></li></ul><button type="button" class="header__tagsSwitcher" aria-label="Меню"><svg class="icon icon_menu"><use xlink:href="#menu"></use></svg></button><button type="button" class="theme-switcher-module--themeSwitcher--032b9" aria-label="Изменить тему"><svg class="icon icon_theme"><use xlink:href="#theme"></use></svg></button><div class="searchBlock "><form class="searchForm searchForm_hidden" action="#"><input class="searchForm__input" placeholder="Найти запись" aria-label="Поиск" value=""/></form><button type="button" class="searchForm__button " aria-label="Поиск"><svg class="icon icon_search"><use xlink:href="#search"></use></svg></button></div></header><main class="page"><article class="article"><header class="article__header"><div class="article__box"><h1 class="article__title">Поваренная книга openbox</h1><a class="article__tag" href="/tags/linux/"><span>linux</span></a><span class="article__date">02 августа 2012</span></div><div class="article__image" style="background-image:url(
+/static/d52ff761191cb209e858dc6ce8026876/3c1b2/openbox.webp);background-color:#080808"></div></header><div class="page__content"><p>В мире open source имеется великое множество различных оконных менеджеров.
+Как растворяющийся в роскошном одеянии KDE, так и более скромные и лёгкие Gnome,
+XFCE. Но сегодня мы будем учиться готовить нечто ещё более легковесное.
+Тем, кто неравнодушен к openbox посвящается.</p>
+<p><strong>Задача:</strong> привести openbox к подобному виду:</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1024px; flex:2;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/3d3fa09aeba24f3837db0e7ca3e75729/e93cc/openbox1.webp 300w,
+/static/3d3fa09aeba24f3837db0e7ca3e75729/b0544/openbox1.webp 600w,
+/static/3d3fa09aeba24f3837db0e7ca3e75729/53334/openbox1.webp 1024w"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/3d3fa09aeba24f3837db0e7ca3e75729/73b64/openbox1.jpg 300w,
+/static/3d3fa09aeba24f3837db0e7ca3e75729/3ad8d/openbox1.jpg 600w,
+/static/3d3fa09aeba24f3837db0e7ca3e75729/c3413/openbox1.jpg 1024w"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/3d3fa09aeba24f3837db0e7ca3e75729/c3413/openbox1.jpg"
+            alt="openbox"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></span>
+<p>Полный боевой комплект:</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> openbox openbox-themes conky nitrogen tint2 setxkbmap wbar gmrun xxkb
+$ yaourt <span class="token parameter variable">-S</span> xev xcompmgr-dana</code></pre></div></span>
+<h2 id="сразу-займёмся-делами-насущными" style="position:relative"><a href="#%D1%81%D1%80%D0%B0%D0%B7%D1%83-%D0%B7%D0%B0%D0%B9%D0%BC%D1%91%D0%BC%D1%81%D1%8F-%D0%B4%D0%B5%D0%BB%D0%B0%D0%BC%D0%B8-%D0%BD%D0%B0%D1%81%D1%83%D1%89%D0%BD%D1%8B%D0%BC%D0%B8" aria-label="сразу займёмся делами насущными permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Сразу займёмся делами насущными</h2>
+<p>А именно настроим раскладку клавиатуры и заодно пропишем всё, что должно быть
+в автозапуске  и запуск самого openbox, дабы нас не встречал голый экран.
+Копируем примеры для редактирования:</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ~/.config/openbox
+$ <span class="token function">cp</span> /etc/xdg/openbox/<span class="token punctuation">{</span>rc.xml,menu.xml,autostart,environment<span class="token punctuation">}</span> ~/.config/openbox</code></pre></div></span>
+<p>Openbox может быть выбран в качестве сессии, если у вас уже установлен slim,
+kdm, gdm или ещё что-то. Если же нет и это вам не нужно, идём потрошить <span><code class="language-text">.xinitrc</code></span>:</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># .xinitrc</span>
+<span class="token comment">#</span>
+<span class="token comment">#! /bin/bash</span>
+<span class="token builtin class-name">exec</span> openbox-session
+
+<span class="token comment"># ~/.config/openbox/autostart</span>
+conky <span class="token operator">&amp;</span>
+nitrogen <span class="token parameter variable">--restore</span> <span class="token operator">&amp;</span>
+tint2 <span class="token operator">&amp;</span>
+<span class="token comment"># раскладка клавиатуры</span>
+setxkbmap <span class="token parameter variable">-layout</span> us,ru <span class="token parameter variable">-variant</span> <span class="token parameter variable">-option</span> grp:alt_shift_toggle,terminate:ctrl_alt_bksp <span class="token operator">&amp;</span>
+wbar -above-desk <span class="token parameter variable">-pos</span> <span class="token function">top</span> <span class="token operator">&amp;</span>
+<span class="token comment"># композитный менеджер</span>
+xcompmgr -с <span class="token parameter variable">-C</span> <span class="token parameter variable">-t5</span> <span class="token parameter variable">-l8.28.2</span> <span class="token parameter variable">-r8.2</span> <span class="token parameter variable">-o.55</span> <span class="token operator">&amp;</span>
+<span class="token comment"># networkmanager applet ( при надобности )</span>
+nm-applet --sm-disable <span class="token operator">&amp;</span></code></pre></div></span>
+<p>Таким образом раскладка настроена на переключение по <span><code class="language-text">Shift+Alt</code></span>, вверху
+запускается wbar, о котором сказано будет чуть ниже, выбранная обоина на
+рабочем столе восстанавливается при старте системы, стартует conky. Причём
+фон у conky прозрачный. Если это не так, устанавливаем композитный менеджер.
+Коротко о его свойствах ниже, он отвечает за различные графические эффекты:
+тени, прозрачность и тому подобное.</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> yaourt xcompmgr-dana</code></pre></div></span>
+<p>Чтобы на панели tint2 отображалась используемая раскладка,
+нам понадобится установить xxkb и создать его конфигурационный файл в
+домашней директории:</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># ~.xxkbrc:</span>
+<span class="token comment">#</span>
+XXkb.image.path: /usr/share/xxkb/
+XXkb.mainwindow.type:  tray
+XXkb.group.base: <span class="token number">1</span>
+XXkb.group.alt: <span class="token number">2</span>
+XXkb.mainwindow.enable:  <span class="token function">yes</span>
+XXkb.mainwindow.image.1: en15.xpm
+XXkb.mainwindow.image.2: ru15.xpm
+XXkb.mainwindow.image.3:
+XXkb.mainwindow.image.4:
+XXkb.mainwindow.appicon:  <span class="token function">yes</span>
+XXkb.mainwindow.geometry:  20x20+2+2
+XXkb.mainwindow.in_tray:  GNOME2
+XXkb.button.enable:  no
+XXkb.app_list.wm_class_name.start_alt: skype
+XXkb.controls.add_when_start: <span class="token function">yes</span>
+XXkb.controls.add_when_create: <span class="token function">yes</span>
+XXkb.controls.add_when_change: no
+XXkb.controls.focusout: no
+XXkb.mainwindow.xpm.1: en15.xpm
+XXkb.mainwindow.xpm.2: ru15.xpm
+XXkb.mainwindow.label.enable: no</code></pre></div></span>
+<h2 id="меню-и-внешний-вид-openbox" style="position:relative"><a href="#%D0%BC%D0%B5%D0%BD%D1%8E-%D0%B8-%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B9-%D0%B2%D0%B8%D0%B4-openbox" aria-label="меню и внешний вид openbox permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Меню и внешний вид openbox</h2>
+<p>Проверьте, что файл кофигурации располагается в домашней директории
+пользователя, дабы можно было редактировать его, не опасаясь последствий.
+Если его нет, копируем:</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">mkdir</span> ~/.config/openbox <span class="token operator">&amp;&amp;</span> <span class="token function">cp</span> /etc/xdg/openbox/menu.xml ~/.config/openbox/menu.xml</code></pre></div></span>
+<p>Можно редактировать данный файл вручную, поскольку синтаксис достаточно тривиален.
+Но хочу предложить вам второй вариант — obmenu.</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> obmenu
+$ obmenu</code></pre></div></span>
+<ul>
+<li>Можно добавить своё меню - New Menu</li>
+<li>Добавить в него подпункты - New item</li>
+<li>После чего удалить всё ненужное.</li>
+</ul>
+<p><span><code class="language-text">Obmenu</code></span> требует, чтобы вы ввели название нового приложения в меню,
+действие — Execute и путь к нему.
+Так, для добавления редактора eclipse, введём его наименование и пропишем
+путь <span><code class="language-text">/usr/bin/eclipse</code></span>.</p>
+<p>Для остальных приложений аналогично.</p>
+<p>Впрочем, можете воспользоваться программой menumaker, которая генерирует
+меню самостоятельно.</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> menumaker
+$ mmaker <span class="token parameter variable">-v</span> openbox    <span class="token comment">#  Не перезаписывать существующий файл меню.</span>
+$ mmaker <span class="token parameter variable">-vf</span> openbox   <span class="token comment">#  Принудительно перезаписать файл меню.</span></code></pre></div></span>
+<p>Теперь кликаем правой клавишей мыши по рабочему столу, выбираем из
+меню &quot;System&quot; - &quot;Openbox configuration Manager&quot;.</p>
+<p>Так-то лучше. И здесь нам не придётся вручную редактировать файл конфигурации.
+Настройки как правило уже русифицированы и в них нет ничего, с чем было
+бы сложно разобраться.</p>
+<h2 id="смена-обоев-на-рабочем-столе" style="position:relative"><a href="#%D1%81%D0%BC%D0%B5%D0%BD%D0%B0-%D0%BE%D0%B1%D0%BE%D0%B5%D0%B2-%D0%BD%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%BC-%D1%81%D1%82%D0%BE%D0%BB%D0%B5" aria-label="смена обоев на рабочем столе permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Смена обоев на рабочем столе</h2>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> nitrogen
+$ nitrogen</code></pre></div></span>
+<p>Здесь всё просто. Укажите путь к вашим изображениям, и они
+появятся в <span><code class="language-text">nitrogen</code></span> — выбирайте любое. Можно добавить nitrogen в меню
+с помощью obmenu. Подобную операцию мы уже проделывали.</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 444px; flex:1;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 116.66666666666667%; position: relative; bottom: 0; left: 0; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/12e6c3e42a81cdf964ee6f46ff01dbb8/e93cc/nitrogen.webp 300w,
+/static/12e6c3e42a81cdf964ee6f46ff01dbb8/011e6/nitrogen.webp 444w"
+              sizes="(max-width: 444px) 100vw, 444px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/12e6c3e42a81cdf964ee6f46ff01dbb8/eed55/nitrogen.png 300w,
+/static/12e6c3e42a81cdf964ee6f46ff01dbb8/6fe33/nitrogen.png 444w"
+            sizes="(max-width: 444px) 100vw, 444px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/12e6c3e42a81cdf964ee6f46ff01dbb8/6fe33/nitrogen.png"
+            alt="notrigen"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></span>
+<h2 id="иконки-и-шрифты" style="position:relative"><a href="#%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8-%D0%B8-%D1%88%D1%80%D0%B8%D1%84%D1%82%D1%8B" aria-label="иконки и шрифты permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Иконки и шрифты</h2>
+<p>Кто-то предпочитает настраивать ручками, но мы опять сэкономим своё время,
+установив <span><code class="language-text">lxappearance</code></span>:</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> lxappearance</code></pre></div></span>
+<p>Запускаем и выбираем, что больше нравится.</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 625px; flex:1;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.66666666666667%; position: relative; bottom: 0; left: 0; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e176bfdb69052e81e6dcbb0e8654ab5d/e93cc/lxappearance.webp 300w,
+/static/e176bfdb69052e81e6dcbb0e8654ab5d/b0544/lxappearance.webp 600w,
+/static/e176bfdb69052e81e6dcbb0e8654ab5d/ee9b0/lxappearance.webp 625w"
+              sizes="(max-width: 625px) 100vw, 625px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e176bfdb69052e81e6dcbb0e8654ab5d/eed55/lxappearance.png 300w,
+/static/e176bfdb69052e81e6dcbb0e8654ab5d/7491f/lxappearance.png 600w,
+/static/e176bfdb69052e81e6dcbb0e8654ab5d/5eb1c/lxappearance.png 625w"
+            sizes="(max-width: 625px) 100vw, 625px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e176bfdb69052e81e6dcbb0e8654ab5d/5eb1c/lxappearance.png"
+            alt="lxappearance"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></span>
+<p>Если есть желание отображать иконки на рабочем столе, idesk к вашим услугам.
+Автор сего поста не пользуется этой программой, поэтому долго не обсуждает.</p>
+<p>Вообще, процедура сводится к созданию файла <span><code class="language-text">название_программы.lnk</code></span> в
+директории <span><code class="language-text">.idesktop/</code></span> , где прописыватся примерно такое:</p>
+<span><div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">table Icon
+Caption: firefox
+Command: firefox
+Icon: /home/arch/.idesktop/firefox.png
+Width: 48
+Height: 48
+X: 40
+Y: 40
+end</code></pre></div></span>
+<p>Думаю, в объяснении не нуждается. Файл конфигурации лежит по пути <span><code class="language-text">/usr/share/idesk/dot.ideskrc</code></span>. Отображать иконку уровня звука призван obmixer, который также надо просто добавить в автозагрузку.</p>
+<h2 id="горячие-клавиши" style="position:relative"><a href="#%D0%B3%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B5-%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D1%88%D0%B8" aria-label="горячие клавиши permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Горячие клавиши</h2>
+<p>Сочетания горячих клавиш настраиваются в <span><code class="language-text">~/.config/openbox/rc.xml</code></span>.
+Ищем эти настройки в соответствующих секциях.</p>
+<p>Перемещение между рабочими столами:</p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token comment">&lt;!-- Keybindings for desktop switching --></span></code></pre></div></span>
+<p>За управление окнами отвечает секция:</p>
+<span><div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&lt;!-- Keybindings for windows --></code></pre></div></span>
+<p>Переключение окон:</p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token comment">&lt;!-- Keybindings for window switching --></span></code></pre></div></span>
+<p>Запуск приложений:</p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token comment">&lt;!-- Keybindings for running applications --></span></code></pre></div></span>
+<p>И так далее.
+Например, если нужно подцепить горячую клавишу для firefox, создаём такой блок:</p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>W-w<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Execute<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>command</span><span class="token punctuation">></span></span>firefox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>command</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>startupnotify</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Minefield Web Browser<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>startupnotify</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span></code></pre></div></span>
+<ul>
+<li>keybind key - привязка определённой клавиши</li>
+<li>action name - execute значит, что это приложение запуска</li>
+<li>command - либо вводим путь вроде <span><code class="language-text">/usr/bin/firefox</code></span>, либо просто указываем, какое приложение надо запустить</li>
+<li>enabled - включено</li>
+<li>name - имя для программы</li>
+</ul>
+<p>Для примера назначим горячую клавишу самому меню openbox:</p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>W-space<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ShowMenu<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>menu</span><span class="token punctuation">></span></span>root-menu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>menu</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span></code></pre></div></span>
+<p>Теперь нажатием клавиш <span><code class="language-text">super</code></span> (win) + <span><code class="language-text">пробел</code></span> мы сможем вызвать главное
+меню со списком наших приложений.</p>
+<p>Сокращения клавиш:</p>
+<ul>
+<li><span><code class="language-text">A</code></span> - Alt</li>
+<li><span><code class="language-text">W</code></span> - win</li>
+<li><span><code class="language-text">C</code></span> - ctrl</li>
+</ul>
+<p>И так далее по смыслу</p>
+<h3 id="настраиваем-клавиши-для-перемещения-окон-с-клавиатуры" style="position:relative"><a href="#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC-%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D1%88%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BE%D0%BA%D0%BE%D0%BD-%D1%81-%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D0%B0%D1%82%D1%83%D1%80%D1%8B" aria-label="настраиваем клавиши для перемещения окон с клавиатуры permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Настраиваем клавиши для перемещения окон с клавиатуры</h3>
+<p>Возможные действия над окнами:</p>
+<ul>
+<li><span><code class="language-text">SendToDesktop</code></span> (отправить окно на указанный аргументом опции рабочий стол; опция <span><code class="language-text">&lt;to></code></span>, её значение – номер стола);</li>
+<li><span><code class="language-text">Focus</code></span> (передать окну фокус);</li>
+<li><span><code class="language-text">Raise</code></span> (поднять окно на передний план);</li>
+<li><span><code class="language-text">Lower</code></span> (переместить окно на задний план);</li>
+<li><span><code class="language-text">Iconify</code></span> (свернуть окно на панель);</li>
+<li><span><code class="language-text">Close</code></span> (закрыть окно);</li>
+<li><span><code class="language-text">ToggleShade</code></span> (свернуть в заголовок/развернуть из заголовка);</li>
+<li><span><code class="language-text">ToggleMaximize</code></span> (включить/отключить режим полного развёртывания);</li>
+<li><span><code class="language-text">ToggleFullscreen</code></span> (включить/отключить полноэкранный режим);</li>
+<li><span><code class="language-text">ToggleDecorations</code></span> (включить/отключить заголовок);</li>
+<li><span><code class="language-text">Move</code></span> (переместить);</li>
+<li><span><code class="language-text">Resize</code></span> (изменить размер).</li>
+</ul>
+<p>Пример:</p>
+<p>В секции <span><code class="language-text">&lt;!-- Keybindings for window switching with the arrow keys --></code></span></p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>W-k<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ToggleShade<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>W-f<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ToggleFullscreen<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>W-Left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Move<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>W-Right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Resize<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span></code></pre></div></span>
+<p>Так, по <span><code class="language-text">Win+k</code></span> окно сворачиается, остаётся лишь заголовок</p>
+<ul>
+<li><span><code class="language-text">Win+f</code></span> - развернуть/свернуть</li>
+<li><span><code class="language-text">Win+Left</code></span> - перемещение окна</li>
+<li><span><code class="language-text">Win+Right</code></span> - изменение размера окна</li>
+</ul>
+<h2 id="мультимедийные-клавиши" style="position:relative"><a href="#%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%BC%D0%B5%D0%B4%D0%B8%D0%B9%D0%BD%D1%8B%D0%B5-%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D1%88%D0%B8" aria-label="мультимедийные клавиши permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Мультимедийные клавиши</h2>
+<p>Универсальный способ. Код клавиш нужно перевести в 16-ричную систему счисления.
+Например, вы хотите прикрутить какую-то клавишу на увеличение громкости звука.
+Запустите в терминале утилиту xev, нажмите нужную клавишу и посмотрите ее keycode.</p>
+<p>Например:</p>
+<span><div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">KeyRelease event, serial 39, synthetic NO, window 0x1e00001,
+root 0x15a, subw 0x0, time 1613305, (627,558), root:(655,831),
+state 0x0, keycode 122 (keysym 0x1008ff11, XF86AudioLowerVolume)</code></pre></div></span>
+<p>Теперь это число (122) нужно перевести в шестнадцатеричное. Вот так:</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">$ <span class="token builtin class-name">printf</span> <span class="token string">"%X<span class="token entity" title="\n">\n</span>"</span> <span class="token number">122</span>
+7A</code></pre></div></span>
+<p>К этому числу добавить <span><code class="language-text">"0x"</code></span>, т.е.  <span><code class="language-text">"0x7A"</code></span>. Пример конфига, где <span><code class="language-text">Fn-10</code></span>
+(0x122) увеличивает уровень звука, а <span><code class="language-text">Fn-9</code></span> (0x123) уменьшает:</p>
+<span><div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0x7A<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Execute<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>command</span><span class="token punctuation">></span></span>amixer sset Front 1+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>command</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>startupnotify</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Folume +<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>startupnotify</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keybind</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0x7B<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Execute<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>command</span><span class="token punctuation">></span></span>amixer sset Front 1-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>command</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>startupnotify</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>enabled</span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>enabled</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Folume -<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>startupnotify</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>action</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keybind</span><span class="token punctuation">></span></span></code></pre></div></span>
+<p>Хотя, наилучший способ настроить мультимедийную клавиатуру - <span><code class="language-text">xmodmap</code></span></p>
+<p>Пример: настраиваем регулировку яркости экрана</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ xmodmap <span class="token parameter variable">-pke</span>
+keycode <span class="token number">231</span> <span class="token operator">=</span> Cancel NoSymbol Cancel
+keycode <span class="token number">232</span> <span class="token operator">=</span> XF86MonBrightnessDown NoSymbol XF86MonBrightnessDown
+keycode <span class="token number">233</span> <span class="token operator">=</span> XF86MonBrightnessUp NoSymbol XF86MonBrightnessUp
+keycode <span class="token number">234</span> <span class="token operator">=</span> XF86AudioMedia NoSymbol XF86AudioMedia и прочее<span class="token punctuation">..</span>.
+
+$ <span class="token function">vim</span> .xmodmaprc
+keycode <span class="token number">232</span> <span class="token operator">=</span> XF86MonBrightnessDown keycode <span class="token number">233</span> <span class="token operator">=</span> XF86MonBrightnessUp</code></pre></div></span>
+<p>После чего следует добавить в файл автозапуска (в нашем случае <span><code class="language-text">.config/openbox/autostart</code></span>):</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ xmodmap ~/.xmodmaprc</code></pre></div></span>
+<h2 id="wbar" style="position:relative"><a href="#wbar" aria-label="wbar permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Wbar</h2>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> wbar</code></pre></div></span>
+<p>Редактировать эту утилиту очень просто. И очень долго, поскольку ваши темы иконок
+кушать она не станет. К каждой иконке прописывается свой путь. Впрочем, возможно
+автор просто не знает удобных утилит для автоматизации этого процесса.</p>
+<p>Если хотите, чтобы кроме иконок приложений в баре отображались и открытые на данный
+момент окна, не забудьте выставить флаг <span><code class="language-text">"Enable Taskbar"</code></span> в настройках.</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 382px; flex:1;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 115.66666666666667%; position: relative; bottom: 0; left: 0; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/847616c8a3c9354a7784eb01db77f1da/e93cc/wbar.webp 300w,
+/static/847616c8a3c9354a7784eb01db77f1da/69703/wbar.webp 382w"
+              sizes="(max-width: 382px) 100vw, 382px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/847616c8a3c9354a7784eb01db77f1da/eed55/wbar.png 300w,
+/static/847616c8a3c9354a7784eb01db77f1da/bac1e/wbar.png 382w"
+            sizes="(max-width: 382px) 100vw, 382px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/847616c8a3c9354a7784eb01db77f1da/bac1e/wbar.png"
+            alt="wbar"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></span>
+<h2 id="xcompmgr-и-различные-эффекты" style="position:relative"><a href="#xcompmgr-%D0%B8-%D1%80%D0%B0%D0%B7%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B5-%D1%8D%D1%84%D1%84%D0%B5%D0%BA%D1%82%D1%8B" aria-label="xcompmgr и различные эффекты permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Xcompmgr и различные эффекты</h2>
+<p>Управление xcompmgr осуществляется при помощи его запуска с разными опциями.</p>
+<ul>
+<li><span><code class="language-text">-c</code></span> - добавить мягкие тени к окнам</li>
+<li><span><code class="language-text">-С</code></span> - убрать отрисовку теней у баров (wbar, например)</li>
+<li><span><code class="language-text">f</code></span> - плавные эффекты затухания при сворачивании окон</li>
+</ul>
+<p>полный перечень в <span><code class="language-text">man xcpomgr</code></span></p>
+<p>Для просмотра полных возможностей можно обратиться к странице man&#x27;а.
+Чтобы окна были прозрачными понадобится пакет <span><code class="language-text">transset</code></span>.
+Можно использовать альтернативу: <span><code class="language-text">cairo-compmgr</code></span></p>
+<h2 id="tint2" style="position:relative"><a href="#tint2" aria-label="tint2 permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Tint2</h2>
+<p>А вот это приберегите для бессонных ночей.</p>
+<span><div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> tint2</code></pre></div></span>
+<p>После запуска в директории <span><code class="language-text">~/.config/tint2/</code></span> появится конфигурационный
+файл <span><code class="language-text">tint2rc</code></span>, со стандартными настройками.</p>
+<p>Фон и рамки. При минимальном знании английского или даже интуитивно
+настраивается легко. Все опции просты и понятны. Можно, например, настроить ширину
+и цвет рамки.</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># BACKGROUND AND BORDER</span>
+<span class="token comment">#———————————————</span>
+
+rounded -  закругление углов <span class="token punctuation">(</span>в пикселях<span class="token punctuation">)</span>
+border_width – ширина границы <span class="token punctuation">(</span>в пикселях<span class="token punctuation">)</span>
+background_color – цвет фона
+border_color – цвет границы</code></pre></div></span>
+<p>Секция настройки панели</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># PANEL</span>
+<span class="token comment">#———————————————</span>
+
+panel_monitor <span class="token operator">=</span> определяет как отображать панель <span class="token punctuation">(</span>all – на всех мониторах, <span class="token number">1</span><span class="token punctuation">..</span><span class="token number">2</span> – на выбранных<span class="token punctuation">)</span>
+panel_position <span class="token operator">=</span> расположение панели
+panel_margin <span class="token operator">=</span> отступ от краев экрана
+panel_padding <span class="token operator">=</span> отступ индикатора окна от левого края панели,  от верхнего края панели и отступ между индикаторами соответственно
+font_shadow <span class="token operator">=</span> Тень фона
+panel_background_id <span class="token operator">=</span> фон панели и толщина границы
+wm_menu <span class="token operator">=</span> <span class="token number">0</span> или <span class="token number">1</span> – не показывать или показывать меню WM при клике на панели
+panel_dock <span class="token operator">=</span>  <span class="token number">0</span> или <span class="token number">1</span> – использовать интеграцию с WM
+panel_layer <span class="token operator">=</span> bottom,normal,top – определяет слой панели, используется для улучшения отображения прозрачности</code></pre></div></span>
+<p>Секция Taskbar</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># TASKBAR</span>
+<span class="token comment">#———————————————</span>
+
+taskbar_mode <span class="token operator">=</span> single_desktop или multi_desktop – на каждом рабочем столе своя панель, либо одна для всех соответственно
+taskbar_paddin <span class="token operator">=</span> <span class="token number">3</span> переменные, <span class="token number">1</span>  – расстояние между значками и краем панели, расстояние между значками и вертикальными границами панели, расстояние между значками.
+taskbar_background_id <span class="token operator">=</span> фон и границы области открытого окна
+taskbar_active_background_id <span class="token operator">=</span> фон и границы области активного открытого окна</code></pre></div></span>
+<p>Секция TASKS</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># TASKS</span>
+<span class="token comment">#———————————————</span>
+
+task_icon <span class="token operator">=</span> <span class="token number">1</span> или <span class="token number">0</span> – показывать иконку приложения или нет
+task_text  <span class="token operator">=</span> <span class="token number">1</span> или <span class="token number">0</span> – показывать текст на кнопке или нет
+task_maximum_size <span class="token operator">=</span> максимальный размер кнопки по горизонтали <span class="token punctuation">(</span>для вертикальной панели<span class="token punctuation">)</span> и по вертикали <span class="token punctuation">(</span>для вертикальной панели<span class="token punctuation">)</span>
+task_centered <span class="token operator">=</span> <span class="token number">1</span> или <span class="token number">0</span>  – центрировать кнопку
+task_padding <span class="token operator">=</span> расстояние текста <span class="token punctuation">(</span>иконки<span class="token punctuation">)</span> от краев кнопки <span class="token punctuation">(</span>первая цифра – по горизонтали, вторая – по вертикали<span class="token punctuation">)</span>
+task_font <span class="token operator">=</span> Шрифт
+task_font_color  <span class="token operator">=</span> Цвет шрифта
+task_background_id <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">=</span> фон и границы области кнопки панели задач
+task_icon_asb <span class="token operator">=</span> <span class="token punctuation">(</span>saturation-brightness<span class="token punctuation">)</span> настройка отображения иконки приложения
+task_active_background_id <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">=</span> настройка для активного окна
+task_active_font_color <span class="token operator">=</span> настройка шрифта для активного окна
+task_active_icon_asb <span class="token operator">=</span> настройка отображения иконки для активного окнам
+urgent_nb_of_blink <span class="token operator">=</span> количество “миганий”</code></pre></div></span>
+<p>Секция Systraybar</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># SYSTRAYBAR</span>
+<span class="token comment">#———————————————</span>
+
+systray <span class="token operator">=</span> <span class="token number">1</span> или <span class="token number">0</span> – включить или отключить систем трей
+systray_padding <span class="token operator">=</span> <span class="token number">3</span> параметра – расстояние между краем панели и значком приложения, расстояние между значком и вертикальными краями панели, расстояние между значками
+systray_background_id <span class="token operator">=</span> фон и границы области панели задач
+systray_sort <span class="token operator">=</span> left2right <span class="token operator">=</span> способ расположения приложений на панели задач
+systray_icon_size <span class="token operator">=</span> размер иконки
+systray_icon_asb <span class="token operator">=</span> настройка отображения иконки приложения</code></pre></div></span>
+<p>Секция Clock</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># CLOCK</span>
+<span class="token comment">#———————————————</span>
+
+time1_format <span class="token operator">=</span> %H:%M  – Формат отображения времени в первой строке
+time1_font <span class="token operator">=</span> sans <span class="token number">8</span>  – шрифт отображения времени в первой строке
+time2_format <span class="token operator">=</span> %A %d %B – формат отображения времени во второй строке <span class="token punctuation">(</span>здесь  – дата<span class="token punctuation">)</span>
+time2_font <span class="token operator">=</span> sans <span class="token number">6</span> – шрифт отображения во второй строке
+clock_font_color <span class="token operator">=</span> <span class="token comment">#ffffff 76 – цвет шрифта и прозрачность</span>
+clock_padding <span class="token operator">=</span> <span class="token number">1</span> <span class="token number">0</span> -  два параметра – расстояние между краем панели и временем, расстояние между временем и вертикальными краями панели
+clock_background_id <span class="token operator">=</span> фон и границы области панели задач
+clock_lclick_command <span class="token operator">=</span> text – запуск команды <span class="token punctuation">(</span>text<span class="token punctuation">)</span> при нажатии на часах левой кнопкой мыши
+clock_rclick_command <span class="token operator">=</span> text – запуск команды <span class="token punctuation">(</span>text<span class="token punctuation">)</span> при нажатии на часах правой кнопкой мыши
+clock_tooltip <span class="token operator">=</span> %A %d %B – формат и вывод подсказки при наведении мышки на область часов
+time1_timezone <span class="token operator">=</span> часовой пояс первой строки
+time2_timezone <span class="token operator">=</span> часовой пояс второй строки
+clock_tooltip_timezone <span class="token operator">=</span> часовой пояс подсказки при наведении мышки на область часов</code></pre></div></span>
+<p>Секция Battery</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># BATTERY</span>
+<span class="token comment">#———————————————</span>
+
+battery <span class="token operator">=</span> <span class="token number">1</span> или <span class="token number">0</span> – показывать или нет заряд батареи на панели
+battery_hide <span class="token operator">=</span> <span class="token punctuation">(</span>от <span class="token number">0</span> до <span class="token number">100</span><span class="token punctuation">)</span> – показывать на панели, когда заряд батареи опуститься до заданного значения
+battery_low_status <span class="token operator">=</span> <span class="token punctuation">(</span>от <span class="token number">0</span> до <span class="token number">100</span><span class="token punctuation">)</span> – показывает низкий заряд батареи, когда он опускается до заданного значения
+battery_low_cmd <span class="token operator">=</span> <span class="token function">notify-send</span> “battery low” – что делать если заряд батареи достиг минимального значения
+bat1_font  – шрифт отображения первой строки
+bat2_font – шрифт отображения второй строки
+battery_font_color <span class="token operator">=</span> <span class="token comment">#ffffff 76 – цвет шрифта и прозрачность</span>
+battery_padding <span class="token operator">=</span> <span class="token number">1</span> <span class="token number">0</span> – два параметра – расстояние между краем панели и индикатором батареи, расстояние между индикатором и вертикальными краями панели
+battery_background_id – фон и границы области панели задач</code></pre></div></span>
+<p>Секция Tooltip</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># TOOLTIP</span>
+<span class="token comment">#———————————————</span>
+
+tooltip  – <span class="token number">1</span> или <span class="token number">0</span> – показывать или нет подсказки
+tooltip_padding – размер подсказок <span class="token punctuation">(</span>по вертикали и горизонтали<span class="token punctuation">)</span>
+tooltip_show_timeout – через какое время показывать, после наведения мыши на элемент панели
+tooltip_hide_timeout – как долго отображать подсказки
+tooltip_background_id – фон и границы области подсказок
+tooltip_font_color – цвет шрифта и прозрачность
+tooltip_font – шрифт подсказок и размер</code></pre></div></span>
+<p>Секция Mouse Action and task</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># MOUSE ACTION ON TASK</span>
+<span class="token comment">#———————————————</span>
+
+mouse_middle – Средняя кнопка мыши
+mouse_right – правая кнопка мыши
+mouse_scroll_up – прокрутка колесика мыши вверх
+mouse_scroll_down – прокрутка колесика мыши вниз</code></pre></div></span>
+<p>Каждый из этих параметров может принимать следующие значения – none, close, toggle, iconify, shade, toggle_iconify, maximize_restore, desktop_left, desktop_right, next_task, prev_task.</p>
+<p>Если параметр задан как  <span><code class="language-text">none</code></span> и <span><code class="language-text">wm_menu = 1</code></span> установлен, то события возвращаются приложению отвечающему за окна (WM)</p>
+<p>Секция Autohide</p>
+<span><div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment">#———————————————</span>
+<span class="token comment"># AUTOHIDE OPTIONS</span>
+<span class="token comment">#———————————————</span>
+
+autohide – <span class="token number">1</span> или <span class="token number">0</span> – включить или выключить автоскрытие панели
+autohide_show_timeout – чарез какое время показывать панель, после подвода мыши к краю экрана
+autohide_hide_timeout – через какое время скрыть панель
+autohide_height – высота скрытой панели</code></pre></div></span>
+<p>Что из этого может получиться</p>
+<p>Пример первый:</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1024px; flex:2;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/07159483c8ed1b447b41dfbbb59edc99/e93cc/openbox2.webp 300w,
+/static/07159483c8ed1b447b41dfbbb59edc99/b0544/openbox2.webp 600w,
+/static/07159483c8ed1b447b41dfbbb59edc99/53334/openbox2.webp 1024w"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/07159483c8ed1b447b41dfbbb59edc99/73b64/openbox2.jpg 300w,
+/static/07159483c8ed1b447b41dfbbb59edc99/3ad8d/openbox2.jpg 600w,
+/static/07159483c8ed1b447b41dfbbb59edc99/c3413/openbox2.jpg 1024w"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/07159483c8ed1b447b41dfbbb59edc99/c3413/openbox2.jpg"
+            alt="openbox white"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></span>
+<p>Пример второй:</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1024px; flex:2;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9159dcd7f3bfc6de0de8c8c015b46c88/e93cc/openbox3.webp 300w,
+/static/9159dcd7f3bfc6de0de8c8c015b46c88/b0544/openbox3.webp 600w,
+/static/9159dcd7f3bfc6de0de8c8c015b46c88/53334/openbox3.webp 1024w"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9159dcd7f3bfc6de0de8c8c015b46c88/eed55/openbox3.png 300w,
+/static/9159dcd7f3bfc6de0de8c8c015b46c88/7491f/openbox3.png 600w,
+/static/9159dcd7f3bfc6de0de8c8c015b46c88/658fc/openbox3.png 1024w"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9159dcd7f3bfc6de0de8c8c015b46c88/658fc/openbox3.png"
+            alt="openbox black"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></span>
+<p>Итак, openbox у нас настроен. Быстрый и симпатичный оконный менеджер. Если же
+по каким-то причинам он вам не подходит, а громоздкие DE вы ставить не желаете,
+обратите внимание на xmonad. Возможно, он сумеет вас порадовать.</p>
+<p>А в качестве легковесного файлового менеджера рекомендую <span><code class="language-text">pcmanfm</code></span>.</p><div class="next-prev-module--links--d62c5"><a class="next-prev-module--link--3ae6f" href="/posts/cp1251-to-utf8/"><span>Как перекодировать cp1251 в UTF-8</span></a><span class="next-prev-module--link__separator--e12da"></span><a class="next-prev-module--link--3ae6f" href="/posts/ntpd/"><span>Синхронизация времени в linux</span></a></div></div><div class="comments"><button class="button">Комментарии<span class="button__icon"></span></button><div id="disqus_thread"></div></div></article></main><footer class="footer-module--footer--03d8a"><a href="https://twitter.com/octowed" class="footer-module--footer__link--22faa" rel="nofollow noopener noreferrer" target="_blank" aria-label="Твиттер"><svg class="icon icon_twitter"><use xlink:href="#twitter"></use></svg></a><a href="https://t-do.ru/redvi9" class="footer-module--footer__link--22faa" rel="nofollow noopener noreferrer" target="_blank" aria-label="Телеграм"><svg class="icon icon_telegram"><use xlink:href="#telegram"></use></svg></a><a href="mailto:liberty195@gmail.com" class="footer-module--footer__link--22faa" rel="nofollow noopener noreferrer" target="_blank" aria-label="Почта"><svg class="icon icon_mail"><use xlink:href="#email"></use></svg></a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/openbox/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-b05bbfbd6f04ab26f1a1.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-dad6d8e6c9d0b64f9b3a.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-b79f2baf4ff90a64a1f1.js\"],\"component---src-pages-posts-js\":[\"/component---src-pages-posts-js-565dd2f5f7934642f014.js\"],\"component---src-pages-tags-js\":[\"/component---src-pages-tags-js-88d92c91303a4d191b94.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-2012-12-04-dwm-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-2012-12-04-dwm-index-mdx-da10028ed80e24dff569.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-2013-05-16-gentoo-update-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-2013-05-16-gentoo-update-index-mdx-a82216119f8ac9c6492a.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-2013-09-14-tex-hyperref-hyperref-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-2013-09-14-tex-hyperref-hyperref-mdx-cc3604bc43cacb45f861.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-2021-04-16-gatsby-gatsby-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-2021-04-16-gatsby-gatsby-mdx-ed027fe2cb3214431713.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-2023-07-02-ts-utility-types-ts-utility-types-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-2023-07-02-ts-utility-types-ts-utility-types-mdx-2fdba1f056f08db99446.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-2023-07-03-hash-colors-hash-colors-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-2023-07-03-hash-colors-hash-colors-mdx-6d6747a362fe4faf61b9.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-achilles-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-achilles-index-mdx-fed1040053e956f42ffa.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-adb-wifi-adb-wifi-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-adb-wifi-adb-wifi-mdx-93e5c8d34236a4519bd8.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-chroot-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-chroot-index-mdx-fe2595f276b28645d1f3.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-cp-1251-to-utf-8-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-cp-1251-to-utf-8-index-mdx-3b67ffdaaafd1e035e47.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-css-blur-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-css-blur-index-mdx-f2e1bdee38bf6090aa5f.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-debian-kernel-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-debian-kernel-index-mdx-cd5ca3dbe18e68f77ded.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-debian-wheezy-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-debian-wheezy-index-mdx-19ff95e8b793ba59f905.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-django-first-steps-django-first-steps-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-django-first-steps-django-first-steps-mdx-fa9b9ceb327bb6f4042f.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-django-pagination-django-pagination-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-django-pagination-django-pagination-mdx-6d15cee3f8306c76cec9.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-elegant-design-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-elegant-design-index-mdx-58a340283de6a90b5b33.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-emacs-dired-emacs-dired-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-emacs-dired-emacs-dired-mdx-7ab62b131d7d60bfb73d.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-emacs-emacs-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-emacs-emacs-mdx-78638920b8b38e4a7503.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-emacs-ide-emacs-ide-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-emacs-ide-emacs-ide-mdx-e7cbbebedac22ab0fd75.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-emacs-snippets-emacs-snippets-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-emacs-snippets-emacs-snippets-mdx-066ef0e9e5e6047fe873.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-gentoo-2-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-gentoo-2-index-mdx-920ce0793fbdfbb71fec.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-get-absolute-url-get-absolute-url-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-get-absolute-url-get-absolute-url-mdx-746a9f5160eae9d8873c.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-js-this-js-this-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-js-this-js-this-mdx-a52121b730946ab4cbb5.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-acpi-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-acpi-index-mdx-7d8f41077978686a2721.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-arch-users-arch-users-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-arch-users-arch-users-mdx-a76c8056ade5fb42fed7.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-backup-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-backup-index-mdx-f595468ea0e52ade0143.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-command-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-command-index-mdx-3be86729ea46edaad8e2.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-fbsplash-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-fbsplash-index-mdx-915c662e5015ce3d5763.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-grub-2-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-grub-2-index-mdx-eaeddecd9c2cbe3e0ace.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-install-gentoo-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-install-gentoo-index-mdx-eb1979cce2c5cbae6c2b.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-kernel-v-3-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-kernel-v-3-index-mdx-4ec444463fa86d22652e.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-lamp-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-lamp-index-mdx-9e52be395eee881ac2ca.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-mplayer-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-mplayer-index-mdx-977e2b7e9a8f955618e3.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-ntpd-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-ntpd-index-mdx-aa1a68227d0a8a392983.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-openbox-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-openbox-index-mdx-5772347a10393d9838b1.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-screencast-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-screencast-index-mdx-2562778b416fc5866ffa.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-linux-sound-linux-sound-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-linux-sound-linux-sound-mdx-fce96dd28370ae6e5fa4.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-macos-commands-macos-commands-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-macos-commands-macos-commands-mdx-d2a09289de7e792d0d1f.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-nano-nano-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-nano-nano-mdx-7f8a9f0d1ffe043b9b59.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-nestjs-start-nestjs-start-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-nestjs-start-nestjs-start-mdx-f61d25537276fd440a48.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-npm-build-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-npm-build-index-mdx-27217d5f71dedb56db41.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-pull-request-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-pull-request-index-mdx-30c33358f5af597fdbba.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-pydict-pydict-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-pydict-pydict-mdx-ab725a832278697925d9.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-python-gui-python-gui-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-python-gui-python-gui-mdx-0bf0d21d419c084bfc0c.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-python-sort-sort-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-python-sort-sort-mdx-51f0d043a9c6fd67d21b.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-qemu-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-qemu-index-mdx-2122ed611102df5b2037.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rails-archive-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rails-archive-index-mdx-1e2d9dc4e69d154da112.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rails-markdown-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rails-markdown-index-mdx-ff24a5e98c8af591ba76.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rails-slug-url-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rails-slug-url-index-mdx-77777673445b2303bac1.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-react-dynamic-component-tagname-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-react-dynamic-component-tagname-index-mdx-d1ea3ee0d286fa2ad069.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-react-jsx-render-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-react-jsx-render-index-mdx-c56facea8460ecc29d36.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-react-native-custom-fonts-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-react-native-custom-fonts-index-mdx-b6d1ecb5bfc80b013e7d.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-react-native-icons-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-react-native-icons-index-mdx-719fb5ef2bb554b5f0a0.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-react-render-props-react-render-props-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-react-render-props-react-render-props-mdx-c7dc23646358e81e74d0.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-react-timers-react-timers-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-react-timers-react-timers-mdx-e372a898ef08f2dc563c.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-recursive-component-recursive-component-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-recursive-component-recursive-component-mdx-b956c5871f619ef2ed6d.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-redux-saga-redux-saga-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-redux-saga-redux-saga-mdx-0156f88ce029e915b59f.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-responsive-menu-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-responsive-menu-index-mdx-0c0999b091ebeb0d445e.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rn-dark-mode-rn-dark-mode-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rn-dark-mode-rn-dark-mode-mdx-1dca07b02021085b6887.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rn-maps-rn-maps-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rn-maps-rn-maps-mdx-08e267f85eb7ef4a8972.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rn-mobile-splash-screen-mobile-splash-screen-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rn-mobile-splash-screen-mobile-splash-screen-mdx-40b13c34cb82c9c4b544.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rn-settings-rn-settings-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rn-settings-rn-settings-mdx-7af45cffe6d282d54dad.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rn-toolkit-rn-toolkit-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rn-toolkit-rn-toolkit-mdx-c3927ec2b9ca70281d56.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-rn-without-android-studio-rn-without-android-studio-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-rn-without-android-studio-rn-without-android-studio-mdx-798fc67eb323bd4c0479.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-ruby-archives-in-jekyll-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-ruby-archives-in-jekyll-index-mdx-047dcbcfa93445bba18a.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-ruby-jekyll-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-ruby-jekyll-index-mdx-9335f95454e634038bd3.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-ruby-rvm-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-ruby-rvm-index-mdx-c4c4d71e3921089f030b.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-ruby-sinatra-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-ruby-sinatra-index-mdx-a443f9769d480ee89051.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-sass-controls-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-sass-controls-index-mdx-9e7ff15f6c24f59bf7b4.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-ssh-keys-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-ssh-keys-index-mdx-5207097eb2857e356a4c.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-tex-ebup-latex-epub-latex-md\":[\"/component---src-templates-post-template-tsx-content-file-path-content-tex-ebup-latex-epub-latex-md-c25b19f865fca24ff1f8.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-texreview-texreview-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-texreview-texreview-mdx-8b5d9c563048efe8481c.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-tikz-tikz-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-tikz-tikz-mdx-9dd488512e68b132f95e.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-title-latex-title-latex-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-title-latex-title-latex-mdx-d62f7a9645f4d9eb6e00.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-udev-index-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-udev-index-mdx-34bbd61cbb752d1dc6f2.js\"],\"component---src-templates-post-template-tsx-content-file-path-content-whois-whois-mdx\":[\"/component---src-templates-post-template-tsx-content-file-path-content-whois-whois-mdx-6b15be52bd2f8ce1a766.js\"],\"component---src-templates-tag-template-tsx\":[\"/component---src-templates-tag-template-tsx-41c1dc64612956e85124.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="564798658944e73b73c6";</script><script src="/webpack-runtime-580fb7172f783dce07c9.js" async></script><script src="/framework-35077be2a200ce034dbf.js" async></script><script src="/app-b05bbfbd6f04ab26f1a1.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
